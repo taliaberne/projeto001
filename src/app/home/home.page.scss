@@ -1,0 +1,48 @@
+* {
+  --background: #FBBC05;
+}
+
+#container {
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-bottom: 40px;
+
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #EE214A;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+ion-img {
+  width: 100%;
+}
+
+ion-button {
+  --background: #EE214A;
+  --color: white;
+}
+
+#div {
+  display: flex;
+  justify-content: center ;
+  width: 100%;
+  margin: 0;
+
+}
+
+#line {
+  width: 90%;
+  height: 10px;
+  margin: 20px 0px;
+  display: block;
+  border-bottom: 2px solid  #EE214A;
+}

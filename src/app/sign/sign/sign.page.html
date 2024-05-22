@@ -1,0 +1,51 @@
+
+
+<ion-content [fullscreen]="true">
+  <ion-content [fullscreen]="true">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <a (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon>
+          </a>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <p>Cadastro</p>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+            <ion-input  placeholder="Nome Completo" type="text"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+            <ion-input  placeholder="E-mail" type="email"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+            <ion-input  placeholder="Data de Nascimento" type="date"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="next()">Próximo</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-grid>
+      <ion-row id="container">
+        <ion-col>
+          <ion-img src="../../assets/img/img.png" alt="logo" width="10%"></ion-img>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+  </ion-content>
+
+</ion-content>

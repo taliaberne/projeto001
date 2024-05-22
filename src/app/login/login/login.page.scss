@@ -1,0 +1,42 @@
+* {
+  --background: #FBBC05;
+  font-weight: 400;
+  font-style: normal;
+}
+
+ion-button {
+  --background: #EE214A;
+  --color: white;
+}
+
+ion-input {
+  --border-radius: 3.5%;
+  --margin: 40px;
+  --background: rgb(255, 255, 255);
+  --color: rgb(37, 37, 37);
+  --padding-bottom: 10px;
+  --padding-end: 10px;
+  --padding-start: 10px;
+  --padding-top: 20px;
+}
+
+ion-icon {
+  color: #EE214A;
+  font-size: 40px;
+
+}
+
+ion-icon:hover {
+  color: #ad1534;
+}
+
+p {
+  color: #EE214A;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+ion-row {
+  justify-content: center;
+}

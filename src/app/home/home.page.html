@@ -1,0 +1,32 @@
+
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row id="container">
+      <ion-col>
+        <ion-img src="../../assets/img/logo.png" alt="logo" ></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="login()">Entrar</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="sign()" >Cadastrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid id="div">
+    <ion-row id="line"></ion-row>
+  </ion-grid>
+
+  <div id="container">
+    <p>Ao continuar, você concorda com nossos</p>
+    <p>Termos de Serviço e Política de Privacidade</p>
+  </div>
+</ion-content>
