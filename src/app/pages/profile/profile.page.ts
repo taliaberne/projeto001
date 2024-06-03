@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ProfilePage  {
 
-  constructor() { }
+  constructor() {}
 
 
 

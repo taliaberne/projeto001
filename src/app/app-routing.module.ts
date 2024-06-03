@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./sign2/sign2/sign2.module').then( m => m.Sign2PageModule)
   },
   {
-    path: 'tabs',
+    path: '',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
 ];
