@@ -5,10 +5,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">feed</ion-title>
-
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let book of books" (click)="openBookDetail(book.id)">
+      <ion-thumbnail slot="start">
+        <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Capa do livro">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ book.volumeInfo.title }}</h2>
+        <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
