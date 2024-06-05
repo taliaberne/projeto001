@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class LoginPage {
 
-  constructor(private router: Router) { }
+  email: string ='';
+  password: string='';
+
+  constructor(private router: Router, private authService: AuthService) { }
 
   login(){
-    this.router.navigate(['feed'])
+    this.authService.login(this.email, this.password);
   }
 
   back() {

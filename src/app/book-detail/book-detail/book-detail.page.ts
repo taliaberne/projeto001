@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GoogleBooksService } from '../../services/google-books.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-detail.page.scss'],
 })
 export class BookDetailPage implements OnInit {
+  book: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private booksService: GoogleBooksService) { }
 
   ngOnInit() {
-  }
+    const bookId = this.route.snapshot.paramMap.get('id');
+    if (bookId) {
+    this.booksService.getBookById(bookId).subscribe((data: any) => {
+      this.book = data.volumeInfo;
+    });
+   } else {
+    console.error('Book ID is null');
+   }
+}
 
 }

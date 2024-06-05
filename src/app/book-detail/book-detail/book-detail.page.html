@@ -5,9 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">book-detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div *ngIf="book">
+    <img [src]="book.imageLinks?.thumbnail" *ngIf="book.imageLinks?.thumbnail" />
+    <h2>{{ book.title }}</h2>
+    <h3>{{ book.authors?.join(', ') }}</h3>
+    <p>{{ book.description }}</p>
+  </div>
 </ion-content>
