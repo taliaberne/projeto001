@@ -35,3 +35,13 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+.custom-alert {
+  --border-radius: 10px;
+  --sub-header-color: #222;
+  --message-color: #666;
+}
+.alert-button-confirm {
+  --color: white;
+  --background: #EE214A;
+}

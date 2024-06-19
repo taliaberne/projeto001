@@ -1,26 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>feed</ion-title>
-  </ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-title>Descobrir</ion-title>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col class="right"><a (click)="search()"><ion-icon name="search-outline"></ion-icon></a></ion-col>
+    </ion-row>
+</ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-input [(ngModel)]="query" placeholder="Buscar livro ou autor"></ion-input>
-  </ion-item>
-  <ion-button expand="full" (click)="loadBooks()">Pesquisar</ion-button>
 
-  <ion-list>
-    <ion-item *ngFor="let book of books" (click)="openBookDetail(book.id)">
-      <ion-thumbnail slot="start">
-        <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Capa do livro">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ book.volumeInfo.title }}</h2>
-        <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+
+
+
 
   <ion-list *ngIf="categoryBooks['fiction'] && categoryBooks['fiction'].length > 0" >
     <ion-item-divider>

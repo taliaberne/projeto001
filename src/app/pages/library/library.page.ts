@@ -42,6 +42,10 @@ export class LibraryPage implements OnInit, OnDestroy  {
     this.router.navigate(['../../book-detail', bookId]);
   }
 
+  search() {
+    this.router.navigate(['../../search']);
+  }
+
 
 
 }

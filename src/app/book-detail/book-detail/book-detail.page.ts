@@ -4,6 +4,7 @@ import { GoogleBooksService } from '../../services/google-books.service';
 import { Router } from '@angular/router';
 import { LibraryService } from '../../services/library.service';
 import { Storage } from '@ionic/storage-angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-book-detail',
@@ -16,7 +17,14 @@ export class BookDetailPage implements OnInit {
   isInLibrary: boolean = false;
   bookRating: number = 0;
 
-  constructor(private route: ActivatedRoute, private booksService: GoogleBooksService, private router: Router,  private libraryService: LibraryService, private storage: Storage) { }
+  constructor(
+    private route: ActivatedRoute,
+    private booksService: GoogleBooksService,
+    private router: Router,
+    private libraryService: LibraryService,
+    private storage: Storage,
+    private alertController: AlertController
+  ) { }
 
   ngOnInit() {
     const bookId = this.route.snapshot.paramMap.get('id');
@@ -32,11 +40,26 @@ export class BookDetailPage implements OnInit {
     }
   }
 
-  addToLibrary() {
+  async addToLibrary() {
     this.libraryService.addBook(this.book);
     this.isInLibrary = true;
-    alert('Book added to library!');
+    await this.presentAlert()
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Livro Adicionado!',
+      message: 'O livro foi adicionado à sua biblioteca com sucesso.',
+      cssClass: 'custom-alert',
+      buttons: [{
+        text: 'OK',
+        cssClass: 'alert-button-confirm',
+    }]
+    });
+
+    await alert.present();
+  }
+
 
   checkIfInLibrary() {
     const library = this.libraryService.getLibrary();

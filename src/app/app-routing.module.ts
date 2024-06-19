@@ -28,6 +28,14 @@ const routes: Routes = [
     path: 'book-detail/:id',
     loadChildren: () => import('./book-detail/book-detail/book-detail.module').then( m => m.BookDetailPageModule)
   },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({
