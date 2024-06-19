@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -8,11 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign.page.scss'],
 })
 export class SignPage {
+  email: string ='';
+  password: string ='';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
-  next(){
-    this.router.navigate(['sign2'])
+  async signup() {
+    try {
+      await this.authService.signUpWithEmail(this.email, this.password);
+      this.router.navigate(['/home']);
+    } catch (error) {
+      console.error('Erro ao registrar:', error);
+    }
   }
 
   back() {

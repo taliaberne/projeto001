@@ -14,30 +14,35 @@
         <p>Cadastro</p>
       </ion-row>
 
-      <ion-row>
-        <ion-col>
-            <ion-input  placeholder="Nome Completo" type="text"></ion-input>
-        </ion-col>
-      </ion-row>
+      <form (submit)="signup()">
 
-      <ion-row>
-        <ion-col>
-            <ion-input  placeholder="E-mail" type="email"></ion-input>
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col>
+              <ion-input placeholder="E-mail" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <ion-col>
-            <ion-input  placeholder="Data de Nascimento" type="date"></ion-input>
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col>
+              <ion-input  placeholder="Senha" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+              <ion-input  placeholder="Confirmar Senha" type="password"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" type="submit">Cadastrar</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
     </ion-grid>
 
-      <ion-row>
-        <ion-col>
-          <ion-button expand="block" (click)="next()">Próximo</ion-button>
-        </ion-col>
-      </ion-row>
+
 
       <ion-grid>
       <ion-row id="container">

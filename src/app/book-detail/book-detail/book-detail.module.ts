@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { BookDetailPageRoutingModule } from './book-detail-routing.module';
 
 import { BookDetailPage } from './book-detail.page';
+import { StarRatingModule } from "../../star-rating/star-rating.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    BookDetailPageRoutingModule
-  ],
-  declarations: [BookDetailPage]
+    declarations: [BookDetailPage],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        BookDetailPageRoutingModule,
+        StarRatingModule
+    ]
 })
 export class BookDetailPageModule {}

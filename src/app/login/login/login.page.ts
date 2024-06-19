@@ -14,8 +14,13 @@ export class LoginPage {
 
   constructor(private router: Router, private authService: AuthService) { }
 
-  login(){
-    this.authService.login(this.email, this.password);
+  async login(){
+    try {
+      await this.authService.signInWithEmail(this.email, this.password);
+      this.router.navigate(['/feed']);
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+    }
   }
 
   back() {

@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GoogleBooksService } from '../../services/google-books.service';
 import { Router } from '@angular/router';
 
@@ -9,24 +9,32 @@ import { Router } from '@angular/router';
 })
 export class FeedPage implements OnInit {
 
+  query: string = '';
   books: any[] = [];
-  defaultQuery: string = 'fiction';
+  categoryBooks: { [key: string]: any[] } = {};
 
   constructor(private googleBooksService: GoogleBooksService, private router: Router) { }
 
   ngOnInit() {
-    this.loadBooks();
+    this.getBooksByCategory('fiction');
+    this.getBooksByCategory('science');
   }
 
   loadBooks() {
-    this.googleBooksService.getBooks(this.defaultQuery).subscribe(
-      (response) => {
+    this.googleBooksService.getBooks(this.query).subscribe(
+      (response => {
         this.books = response.items;
-      },
+      }),
       (error) => {
         console.error('Erro ao carregar livros:', error);
       }
     );
+  }
+
+  getBooksByCategory(category: string) {
+    this.googleBooksService.getBooksByCategory(category).subscribe(response => {
+      this.categoryBooks[category] = response.items;
+    });
   }
 
   openBookDetail(bookId: string) {

@@ -1,14 +1,49 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>book-detail</ion-title>
+    <ion-row>
+      <ion-col>
+        <a (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon>
+        </a>
+      </ion-col>
+      <ion-col>
+        <ion-title>book-detail</ion-title>
+      </ion-col>
+    </ion-row>
+
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div *ngIf="book">
-    <img [src]="book.imageLinks?.thumbnail" *ngIf="book.imageLinks?.thumbnail" />
-    <h2>{{ book.title }}</h2>
-    <h3>{{ book.authors?.join(', ') }}</h3>
-    <p>{{ book.description }}</p>
-  </div>
+<ion-content [fullscreen]="true" *ngIf="book">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ book.volumeInfo.title }}</ion-card-title>
+      <ion-card-subtitle>{{ book.volumeInfo.authors?.join(', ') }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-thumbnail>
+        <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Book Cover" />
+      </ion-thumbnail>
+
+      <p>{{ book.volumeInfo.description }}</p>
+
+      <ion-button *ngIf="book.volumeInfo.previewLink" [href]="book.volumeInfo.previewLink" target="_blank">
+        View Preview
+      </ion-button>
+
+      <ion-button *ngIf="!isInLibrary && book.volumeInfo.previewLink" (click)="addToLibrary()">
+        Add to Library
+      </ion-button>
+
+      <ion-button *ngIf="isInLibrary && book.volumeInfo.previewLink" disabled>
+        Already in Library
+      </ion-button>
+
+      <app-star-rating
+      [rating]="bookRating"
+      [readonly]="false"
+      (ratingChanged)="onRatingChanged($event)">
+      </app-star-rating>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

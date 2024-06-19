@@ -11,10 +11,7 @@ const routes: Routes = [
         path:'feed',
           loadChildren: () => import('../pages/feed/feed.module').then(m => m.FeedPageModule)
       },
-      {
-        path:'search',
-          loadChildren: () => import('../pages/search/search.module').then(m => m.SearchPageModule)
-      },
+
       {
         path:'library',
           loadChildren: () => import('../pages/library/library.module').then(m => m.LibraryPageModule)

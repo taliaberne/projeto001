@@ -11,14 +11,27 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private alertController: AlertController) { }
 
-  async login(email: string, password: string) {
+  async signInWithEmail(email: string, password: string) {
     try {
-      await this.afAuth.signInWithEmailAndPassword(email, password);
-      this.router.navigate(['feed']);
+      const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
+      return userCredential;
     } catch (error) {
-      console.error('email ou senha inválidos');
-
+      console.error('Erro ao fazer login:', error);
+      throw error;
     }
   }
 
+  async signUpWithEmail(email: string, password: string) {
+    try {
+      const userCredential = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      return userCredential;
+    } catch (error) {
+      console.error('Erro ao criar usuário:', error);
+      throw error;
+    }
+  }
+
+  async signOut() {
+    await this.afAuth.signOut();
+  }
 }
