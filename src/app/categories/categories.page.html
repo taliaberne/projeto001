@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-title>Categorias</ion-title>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col class="right"><a (click)="search()"><ion-icon name="search-outline"></ion-icon></a></ion-col>
+    </ion-row>
+</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="fiction()">
+      Ficção
+  </ion-button>
+
+  <ion-button (click)="romance()">
+      Romance
+  </ion-button>
+
+</ion-content>

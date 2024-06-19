@@ -20,6 +20,11 @@ const routes: Routes = [
         path:'profile',
             loadChildren: () => import('../pages/profile/profile.module').then(m => m.ProfilePageModule)
       },
+
+      {
+        path: 'categories',
+          loadChildren: () => import('../categories/categories.module').then( m => m.CategoriesPageModule)
+      },
       {
         path: '',
         redirectTo: '/tabs/feed',
