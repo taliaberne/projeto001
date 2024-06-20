@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GoogleBooksService } from '../../services/google-books.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comedy',

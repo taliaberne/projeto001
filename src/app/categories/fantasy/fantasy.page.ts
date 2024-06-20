@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GoogleBooksService } from '../../services/google-books.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fantasy',
@@ -9,6 +9,8 @@ import { Router } from '@angular/router'
 })
 export class FantasyPage implements OnInit {
 
+
+  query: string = '';
   books: any[] = [];
   categoryBooks: { [key: string]: any[] } = {};
 
