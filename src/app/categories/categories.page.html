@@ -11,41 +11,68 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="action()">
-      Ação
-  </ion-button>
 
+  <ion-grid>
 
-    <ion-button (click)="science()">
-        Ciência
-    </ion-button>
+    <ion-row>
+      <ion-col class="categories" size-sm="2">
+        <a (click)="action()">
+          <ion-img src="../../assets/img/action-figure.png" alt="action"></ion-img>
 
+        </a>
+      </ion-col>
+      <ion-col class="categories" size-sm="2">
+        <a (click)="science()">
+          <ion-img src="../../assets/img/atom.png" alt="science" ></ion-img>
 
-    <ion-button (click)="comedy()">
-        Comédia
-    </ion-button>
+        </a>
+      </ion-col>
+    </ion-row>
 
+    <ion-row>
+      <ion-col class="categories" size-sm="2">
+        <a (click)="comedy()">
+          <ion-img src="../../assets/img/comedy.png" alt="comedy"></ion-img>
 
-      <ion-button (click)="fantasy()">
-          Fantasia
-      </ion-button>
+        </a>
+      </ion-col>
+      <ion-col class="categories" size-sm="2">
+        <a (click)="fantasy()">
+          <ion-img src="../../assets/img/spell-book.png" alt="fantasy"></ion-img>
 
+          </a>
+      </ion-col>
+    </ion-row>
 
-  <ion-button (click)="fiction()">
-      Ficção
-  </ion-button>
+    <ion-row>
+      <ion-col class="categories" size-sm="2">
+          <a (click)="fiction()">
+            <ion-img src="../../assets/img/science-fiction.png" alt="fiction"></ion-img>
+          <ion-title class="c-text">Ficção</ion-title>
+          </a>
+      </ion-col>
+      <ion-col class="categories" size-sm="2">
+        <a (click)="mystery()">
+          <ion-img src="../../assets/img/annonymous.png" alt="mystery"></ion-img>
 
+        </a>
+      </ion-col>
+    </ion-row>
 
-    <ion-button (click)="mystery()">
-        Mistério
-    </ion-button>
+    <ion-row>
+      <ion-col class="categories" size-sm="2">
+        <a (click)="romance()">
+          <ion-img src="../../assets/img/romance.png" alt="romance"></ion-img>
 
-  <ion-button (click)="romance()">
-      Romance
-  </ion-button>
+        </a>
+      </ion-col>
 
-    <ion-button (click)="horror()">
-        Terror
-    </ion-button>
+      <ion-col class="categories" size-sm="2">
+        <a (click)="horror()">
+          <ion-img src="../../assets/img/ghost.png" alt="horror"></ion-img>
 
+        </a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
