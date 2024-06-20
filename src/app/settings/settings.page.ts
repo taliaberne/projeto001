@@ -14,5 +14,17 @@ export class SettingsPage  {
     this.router.navigate(['profile'])
   }
 
+  changeemail() {
+    this.router.navigate(['changeemail'])
+  }
+
+  changepass() {
+    this.router.navigate(['changepass'])
+  }
+
+  logout() {
+    this.router.navigate(['home'])
+  }
+
 
 }

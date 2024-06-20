@@ -7,9 +7,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <a (click)="changeemail()">
+  <ion-item  class="settings">
+    Alterar e-mail
+  </ion-item>
+</a>
+
+
+  <a  (click)="changepass()">
+  <ion-item class="settings">
+
+      Alterar senha
+
+  </ion-item>
+
+</a>
+
+  <a   (click)="logout()">
+ <ion-item class="settings">
+  Sair
+</ion-item>
+</a>
+
+
+
 </ion-content>

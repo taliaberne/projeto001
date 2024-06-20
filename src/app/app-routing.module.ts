@@ -41,6 +41,14 @@ const routes: Routes = [
     path: 'categories',
     loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesPageModule)
   },
+  {
+    path: 'changepass',
+    loadChildren: () => import('./changepass/changepass.module').then( m => m.ChangepassPageModule)
+  },
+  {
+    path: 'changeemail',
+    loadChildren: () => import('./changeemail/changeemail.module').then( m => m.ChangeemailPageModule)
+  },
 ];
 
 @NgModule({
