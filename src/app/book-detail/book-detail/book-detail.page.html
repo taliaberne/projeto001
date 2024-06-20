@@ -15,9 +15,20 @@
       <ion-card-subtitle>{{ book.volumeInfo.authors?.join(', ') }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-thumbnail>
-        <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Book Cover" />
-      </ion-thumbnail>
+
+      <ion-row class="book">
+        <img class="cover" [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Book Cover" />
+      </ion-row>
+
+      <ion-row class="book">
+        <app-star-rating class="stars"
+      [rating]="bookRating"
+      [readonly]="false"
+      (ratingChanged)="onRatingChanged($event)">
+      </app-star-rating>
+
+
+      </ion-row>
 
       <p>{{ book.volumeInfo.description }}</p>
 
@@ -33,11 +44,7 @@
         Already in Library
       </ion-button>
 
-      <app-star-rating
-      [rating]="bookRating"
-      [readonly]="false"
-      (ratingChanged)="onRatingChanged($event)">
-      </app-star-rating>
+
     </ion-card-content>
   </ion-card>
 </ion-content>
