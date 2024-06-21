@@ -1,20 +1,25 @@
 <ion-header [translucent]="true">
 
-<ion-toolbar>
-  <ion-row>
-    <ion-col><a (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon>
-    </a></ion-col>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <a  class="left" (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon>
+      </a></ion-col>
 
-    <ion-col class="search">
-      <ion-input [(ngModel)]="query" placeholder="Buscar livro ou autor"></ion-input>
-      </ion-col>
+      <ion-col class="search">
+          <ion-input  [(ngModel)]="query"
+          labelPlacement="stacked" fill="outline"
+          [clearInput]="true"
+          placeholder="Buscar livro ou autor"
+          value="Default value">
+          </ion-input>
+        </ion-col>
 
-      <ion-col class="right">
-        <a (click)="loadBooks()"><ion-icon name="search-outline"></ion-icon></a>
-      </ion-col>
-  </ion-row>
-</ion-toolbar>
-
+        <ion-col class="right">
+          <a (click)="loadBooks()"><ion-icon name="search-outline"></ion-icon></a>
+        </ion-col>
+    </ion-row>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">

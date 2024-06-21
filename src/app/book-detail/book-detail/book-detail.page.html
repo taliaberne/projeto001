@@ -22,27 +22,34 @@
 
       <ion-row class="book">
         <app-star-rating class="stars"
-      [rating]="bookRating"
-      [readonly]="false"
-      (ratingChanged)="onRatingChanged($event)">
-      </app-star-rating>
+        [rating]="bookRating"
+        [readonly]="false"
+        (ratingChanged)="onRatingChanged($event)">
+        </app-star-rating>
+      </ion-row>
+
+      <p class="synopsis">{{ book.volumeInfo.description }}</p>
+
+      <ion-row class="align">
+
+          <a *ngIf="book.volumeInfo.previewLink" [href]="book.volumeInfo.previewLink" target="_blank" class="button">
+            Ver prévia
+          </a>
+
+          <a *ngIf="!isInLibrary && book.volumeInfo.previewLink" (click)="addToLibrary()" class="button">
+
+            Adicionar a biblioteca
+          </a>
+
+          <a *ngIf="isInLibrary && book.volumeInfo.previewLink" disabled class="buttondisabled" >
+
+            Já está na biblioteca
+          </a>
 
 
       </ion-row>
 
-      <p>{{ book.volumeInfo.description }}</p>
 
-      <ion-button *ngIf="book.volumeInfo.previewLink" [href]="book.volumeInfo.previewLink" target="_blank">
-        View Preview
-      </ion-button>
-
-      <ion-button *ngIf="!isInLibrary && book.volumeInfo.previewLink" (click)="addToLibrary()">
-        Add to Library
-      </ion-button>
-
-      <ion-button *ngIf="isInLibrary && book.volumeInfo.previewLink" disabled>
-        Already in Library
-      </ion-button>
 
 
     </ion-card-content>
