@@ -1,3 +1,16 @@
+.clean {
+
+  margin: 2%;
+  justify-content: end;
+  font-size: 20px;
+  padding: 7px;
+}
+
+.button {
+  text-decoration: none;
+  color:  #EE214A;
+}
+
 .right {
   text-align: end;
   padding-right: 5%;
@@ -11,4 +24,33 @@ ion-icon {
 
 ion-icon:hover {
   color: #ad1534;
+}
+
+.empty {
+  width: 100%;
+  padding: 10%;
+  height: 100vh;
+
+}
+
+.empty-text {
+  color: #a8a8a8;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  opacity: 70%;
+
+
+}
+
+.empty-img {
+  width: 100%;
+  justify-content: center;
+  opacity: 80%;
+
+}
+
+.img {
+  width: 50%;
 }

@@ -12,6 +12,11 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-row class="clean"> <a class="button" (click)="clearLibrary()">
+    <ion-icon name="trash-outline"></ion-icon> Clear Library
+  </a> </ion-row>
+
+
   <ion-list *ngIf="library.length > 0; else emptyLibrary">
     <ion-item *ngFor="let book of library" (click)="openBookDetail(book.id)">
       <ion-thumbnail slot="start">
@@ -25,11 +30,13 @@
     </ion-item>
   </ion-list>
 
-  <ng-template #emptyLibrary>
-    <p>No books in library.</p>
-  </ng-template>
+  <ng-template #emptyLibrary >
+    <ion-grid class="empty">
+    <ion-row class="empty-text"><p>No books in Library</p></ion-row>
+      <ion-row class="empty-img">
+        <ion-img src="../../assets/img/Library-rafiki.png" class="img" ></ion-img>
+      </ion-row>
+    </ion-grid>
 
-  <ion-button expand="full" color="danger" (click)="clearLibrary()">
-    Clear Library
-  </ion-button>
+  </ng-template>
 </ion-content>
