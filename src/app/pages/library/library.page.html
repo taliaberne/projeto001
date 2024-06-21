@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <ion-title>Livraria</ion-title>
+        <ion-title>Biblioteca</ion-title>
       </ion-col>
       <ion-col></ion-col>
       <ion-col class="right"><a (click)="search()"><ion-icon name="search-outline"></ion-icon></a></ion-col>
@@ -13,7 +13,7 @@
 <ion-content [fullscreen]="true">
 
   <ion-row class="clean"> <a class="button" (click)="clearLibrary()">
-    <ion-icon name="trash-outline"></ion-icon> Clear Library
+    <ion-icon name="trash-outline"></ion-icon> Limpar Biblioteca
   </a> </ion-row>
 
 
@@ -26,13 +26,13 @@
         <h2>{{ book.volumeInfo.title }}</h2>
         <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
       </ion-label>
-      <ion-button fill="outline" slot="end" (click)="removeBook(book.id)">Remove</ion-button>
+      <a fill="outline" slot="end" (click)="removeBook(book.id)" class="remove">Remover</a>
     </ion-item>
   </ion-list>
 
   <ng-template #emptyLibrary >
     <ion-grid class="empty">
-    <ion-row class="empty-text"><p>No books in Library</p></ion-row>
+    <ion-row class="empty-text"><p>Sem livros na Biblioteca</p></ion-row>
       <ion-row class="empty-img">
         <ion-img src="../../assets/img/Library-rafiki.png" class="img" ></ion-img>
       </ion-row>
