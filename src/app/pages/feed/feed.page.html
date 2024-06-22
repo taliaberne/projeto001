@@ -18,26 +18,40 @@
     <ion-label>Destaques</ion-label>
   </ion-item-divider>
 
-
   <div class="carousel-wrapper">
-
     <div class="carousel-container" #carousel>
       <div class="carousel-slide" *ngFor="let book of books" (click)="openBookDetail(book.id)">
         <ion-card>
           <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Capa do livro">
           <ion-card-header>
-            <ion-card-title class="card-title">{{ book.volumeInfo.title }}</ion-card-title>
+            <ion-card-title>{{ book.volumeInfo.title }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <p class="card-authors">{{ book.volumeInfo.authors?.join(', ') }}</p>
+            <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+  <ion-item-divider class="carousel-title">
+    <ion-label>Lançamentos Recentes</ion-label>
+  </ion-item-divider>
+
+
+  <div class="carousel-wrapper">
+    <div class="carousel-container" #newReleasesCarousel>
+      <div class="carousel-slide" *ngFor="let book of newReleases" (click)="openBookDetail(book.id)">
+        <ion-card>
+          <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Capa do livro">
+          <ion-card-header>
+            <ion-card-title>{{ book.volumeInfo.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
           </ion-card-content>
         </ion-card>
       </div>
     </div>
 
   </div>
-
-
-
-
-</ion-content>

@@ -10,15 +10,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FeedPage implements OnInit {
 
-  query: string = '';
   books: any[] = [];
+  newReleases: any[] = [];
   @ViewChild('carousel', { read: ElementRef, static: false }) carousel!: ElementRef;
+  @ViewChild('newReleasesCarousel', { read: ElementRef, static: false }) newReleasesCarousel: ElementRef | null = null;
+
   private API_URL = 'https://www.googleapis.com/books/v1/volumes';
+
 
   constructor(private http: HttpClient, private googleBooksService: GoogleBooksService, private router: Router) { }
 
   ngOnInit() {
     this.loadBooks();
+    this.loadNewReleases();
   }
 
   loadBooks() {
@@ -31,7 +35,18 @@ export class FeedPage implements OnInit {
     this.http.get(this.API_URL, { params }).subscribe((data: any) => {
       this.books = data.items;
     });
+  }
 
+  loadNewReleases() {
+    const params = {
+      q: 'subject:fiction', // Ajuste a query conforme necessário
+      orderBy: 'newest',
+      maxResults: '10'
+    };
+
+    this.http.get(this.API_URL, { params }).subscribe((data: any) => {
+      this.newReleases = data.items;
+    });
   }
 
   openBookDetail(bookId: string) {
