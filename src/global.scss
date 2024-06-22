@@ -46,7 +46,9 @@
   --background: #EE214A;
 }
 
-ion-title {
+.title {
+  text-align: left;
+  width: 100%;
   color: #EE214A;
   font-weight: 600;
 }

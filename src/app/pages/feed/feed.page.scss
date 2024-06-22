@@ -8,6 +8,61 @@ ion-icon {
   font-size: 25px;
 }
 
-ion-icon:hover {
-  color: #ad1534;
+ion-img {
+  margin-bottom: 10px;
+}
+
+.carousel-title {
+  padding: 10px;
+  font-size: 5vw;
+}
+
+.carousel-wrapper {
+  position: relative;
+  height: 50%;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 30%;
+  margin-right: 16px;
+}
+
+ion-card {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+ion-card img {
+  height: 50%;
+  object-fit: cover;
+}
+
+ion-card-header,
+ion-card-content {
+  padding: 16px;
+  flex: 1;
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 0.7em;
+}
+
+.card-authors {
+  font-size: 0.6em;
 }

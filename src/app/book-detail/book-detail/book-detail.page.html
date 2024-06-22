@@ -3,7 +3,7 @@
     <ion-item>
       <a (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon>
       </a>
-      <ion-title>Detalhes</ion-title>
+      <ion-title class="title">Detalhes</ion-title>
     </ion-item>
   </ion-toolbar>
 </ion-header>
@@ -37,12 +37,10 @@
           </a>
 
           <a *ngIf="!isInLibrary && book.volumeInfo.previewLink" (click)="addToLibrary()" class="button">
-
             Adicionar a biblioteca
           </a>
 
           <a *ngIf="isInLibrary && book.volumeInfo.previewLink" disabled class="buttondisabled" >
-
             Já está na biblioteca
           </a>
 

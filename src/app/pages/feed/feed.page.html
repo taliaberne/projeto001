@@ -2,9 +2,8 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <ion-title>Descobrir</ion-title>
+        <ion-title class="title">Descobrir</ion-title>
       </ion-col>
-      <ion-col></ion-col>
       <ion-col class="right"><a (click)="search()"><ion-icon name="search-outline"></ion-icon></a></ion-col>
     </ion-row>
 </ion-toolbar>
@@ -15,37 +14,30 @@
 
   <ion-img src="../../assets/img/banner.png"></ion-img>
 
+  <ion-item-divider class="carousel-title">
+    <ion-label>Destaques</ion-label>
+  </ion-item-divider>
 
-  <ion-list *ngIf="categoryBooks['fiction'] && categoryBooks['fiction'].length > 0" >
-    <ion-item-divider>
-      <ion-label>Fiction</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let book of categoryBooks['fiction']" (click)="openBookDetail(book.id)">
-      <ion-thumbnail slot="start">
-        <img [src]="book.volumeInfo.imageLinks?.thumbnail" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ book.volumeInfo.title }}</h2>
-        <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
 
-  <!-- Faixa de Categoria Science -->
-  <ion-list *ngIf="categoryBooks['science'] && categoryBooks['science'].length > 0">
-    <ion-item-divider>
-      <ion-label>Science</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let book of categoryBooks['science']" (click)="openBookDetail(book.id)">
-      <ion-thumbnail slot="start">
-        <img [src]="book.volumeInfo.imageLinks?.thumbnail" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ book.volumeInfo.title }}</h2>
-        <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <div class="carousel-wrapper">
+
+    <div class="carousel-container" #carousel>
+      <div class="carousel-slide" *ngFor="let book of books" (click)="openBookDetail(book.id)">
+        <ion-card>
+          <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Capa do livro">
+          <ion-card-header>
+            <ion-card-title class="card-title">{{ book.volumeInfo.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="card-authors">{{ book.volumeInfo.authors?.join(', ') }}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+  </div>
+
+
 
 
 </ion-content>

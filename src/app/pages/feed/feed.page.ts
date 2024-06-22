@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GoogleBooksService } from '../../services/google-books.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-feed',
@@ -11,30 +12,26 @@ export class FeedPage implements OnInit {
 
   query: string = '';
   books: any[] = [];
-  categoryBooks: { [key: string]: any[] } = {};
+  @ViewChild('carousel', { read: ElementRef, static: false }) carousel!: ElementRef;
+  private API_URL = 'https://www.googleapis.com/books/v1/volumes';
 
-  constructor(private googleBooksService: GoogleBooksService, private router: Router) { }
+  constructor(private http: HttpClient, private googleBooksService: GoogleBooksService, private router: Router) { }
 
   ngOnInit() {
-    this.getBooksByCategory('fiction');
-    this.getBooksByCategory('science');
+    this.loadBooks();
   }
 
   loadBooks() {
-    this.googleBooksService.getBooks(this.query).subscribe(
-      (response => {
-        this.books = response.items;
-      }),
-      (error) => {
-        console.error('Erro ao carregar livros:', error);
-      }
-    );
-  }
+    const params = {
+      q: 'subject:fiction',
+      orderBy: 'relevance',
+      maxResults: '10'
+    };
 
-  getBooksByCategory(category: string) {
-    this.googleBooksService.getBooksByCategory(category).subscribe(response => {
-      this.categoryBooks[category] = response.items;
+    this.http.get(this.API_URL, { params }).subscribe((data: any) => {
+      this.books = data.items;
     });
+
   }
 
   openBookDetail(bookId: string) {
@@ -44,6 +41,8 @@ export class FeedPage implements OnInit {
   search() {
     this.router.navigate(['../../search']);
   }
+
+
 
 
 }
